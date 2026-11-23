@@ -1,0 +1,6 @@
+{
+  "name": "recall-cards",
+  "version": "0.6.2",
+  "description": "学习知识卡片闭环（按对话显式开启）：先回答后暂存草稿、按知识点判重制卡、答案只输出一次、多级文件夹树（重命名/移动/删除）、卡片跨文件夹移动与批量操作、遗忘曲线复习调度（间隔预览+记忆曲线）、关联卡片可点击直达、图谱按大类聚簇与文件夹过滤、再次提问基于旧卡反问并提醒动机。",
+  "keywords": ["qoder-plugin", "learning", "knowledge-cards", "spaced-repetition", "recall"]
+}

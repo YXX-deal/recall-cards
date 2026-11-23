@@ -1,0 +1,18 @@
+{
+  "description": "recall-cards：会话启动时幂等确保本地管理台服务驻留（仅监听 127.0.0.1，已活则跳过）",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": ["${QODER_PLUGIN_ROOT}/bin/ensure-ui.mjs"],
+            "name": "recall-cards-ensure-ui",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
