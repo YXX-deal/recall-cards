@@ -1,0 +1,6 @@
+{
+  "display_name": "recall-cards 学习知识卡片",
+  "display_name_en": "recall-cards Learning Cards",
+  "description_zh": "把每次知识点问答存成带\"提问动机\"的知识卡片，自动关联旧卡，按遗忘曲线到期抽测；含本地图形管理台（多级文件夹/复习/图谱/统计）。",
+  "description_en": "Turn each knowledge Q&A into a card with its motivation, auto-link related cards, and quiz on a forgetting curve; includes a local graphical console (folders / review / graph / stats)."
+}

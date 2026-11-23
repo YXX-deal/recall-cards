@@ -1,0 +1,9 @@
+{
+  "name": "recall-cards",
+  "description": "学习知识卡片闭环：问答存卡（带提问动机）、按知识点判重、自动关联、遗忘曲线复习调度、本地图形管理台（多级文件夹/复习/图谱/统计）。零依赖 Node 核心，按对话显式开启。",
+  "version": "0.6.2",
+  "author": { "name": "recall-cards" },
+  "license": "MIT",
+  "keywords": ["learning", "knowledge-cards", "spaced-repetition", "recall", "forgetting-curve"],
+  "skills": ["./"]
+}
