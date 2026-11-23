@@ -432,7 +432,7 @@ async function renderList() {
     <div id="list"></div></div>`;
   bindCrumb();
   $('#list').innerHTML = cards.length ? cards.map(c=>rowHTML(c,true)).join('')
-    : '<div class="empty">没有匹配的卡片。<br>在 Qoder 里问一个知识点问题，或点「新建卡片」。</div>';
+    : '<div class="empty">没有匹配的卡片。<br>在对话里问一个知识点问题，或点「新建卡片」。</div>';
   renderBulk();
   $('#q').addEventListener('input', e => { FILTER.q = e.target.value.trim(); refreshList(); });
   $('#fcat').addEventListener('change', e => { FILTER.cat = e.target.value; refreshList(); });

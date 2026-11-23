@@ -1,6 +1,14 @@
-# recall-cards（WorkBuddy 版）
+# recall-cards
 
-把每一次知识点问答变成一张带「提问动机」的知识卡片，自动关联相关旧卡，按遗忘曲线在快忘时抽测。本包是 Qoder 插件 recall-cards 向 **WorkBuddy** 的移植版，核心（卡片存储 / 检索 / 调度 / 图形管理台）与 Qoder 版完全一致，零依赖纯 Node。
+把每一次知识点问答变成一张带「提问动机」的知识卡片，自动关联相关旧卡，按遗忘曲线在快忘时抽测。零依赖纯 Node，卡片只存本地。
+
+## 特性
+
+- **存卡带动机**：每张卡记录「当时为什么问」，复习时先唤起场景再提问，知识挂得回原始语境
+- **按知识点判重**：同一知识点反复问只保留一张卡，命中则更新补全，不重复堆积
+- **自动关联**：新卡与旧卡建立 `前置 / 对比 / 应用 / 相关` 关系，逐步长成知识图谱
+- **遗忘曲线调度**：答对 1→3→7→×ease，答得勉强 ×1.2，忘了重置为 1 天并记一次 lapse
+- **图形管理台**：多级文件夹、待确认托盘、复习、图谱、统计，仅监听 `127.0.0.1`
 
 ## 安装
 
@@ -19,15 +27,14 @@
 - 复习：说「帮我复习卡片」；图谱：说「看看知识图谱」。
 - 关闭：说「关闭卡片模式」停止本对话制卡；说「关闭管理台」结束服务进程。
 
-## 与 Qoder 版的差异
+## 兼容性
 
-| 项 | Qoder 版 | WorkBuddy 版 |
-| --- | --- | --- |
-| 入口清单 | `.qoder-plugin/plugin.json` | `SKILL.md` frontmatter + `workbuddy.json`（另附 `.claude-plugin/plugin.json` 兼容 Claude Code） |
-| 脚本定位 | `<本Skill目录>` | `${CLAUDE_SKILL_DIR}` |
-| 触发 | 斜杠命令 `/recall-cards:on` 等 + 短语 | 自然语言短语（WorkBuddy 技能按 description 触发） |
-| 服务自启 | SessionStart hook 自动拉起 | 无 hook，打开管理台时由 `scripts/ensure-ui.mjs` 按需幂等拉起 |
-| 界面自启动开关 | 头部「会话自启动」开关 | 已移除（WorkBuddy 无 hook，该开关无意义） |
+| 宿主 | 入口清单 |
+| --- | --- |
+| WorkBuddy | `SKILL.md` frontmatter + `workbuddy.json` |
+| Claude Code | `.claude-plugin/plugin.json` |
+
+脚本定位统一用 `${CLAUDE_SKILL_DIR}`，两种宿主下都能解析。管理台无需 hook，打开时由 `scripts/ensure-ui.mjs` 按需幂等拉起。
 
 ## 目录
 
@@ -46,4 +53,8 @@ recall-cards/
 
 ## 数据
 
-卡片存 `~/.recall-cards/`（环境变量 `RECALL_CARDS_HOME` 可覆盖），与 Qoder 版共用同一份数据目录——同一机器上两个版本打开的是同一个卡片库（服务端按目录单例，不会重复拉起）。卡片只存本地，不写密码/令牌/隐私数据。
+卡片存 `~/.recall-cards/`（环境变量 `RECALL_CARDS_HOME` 可覆盖）。服务端按目录单例运行，不会重复拉起。卡片只存本地，不写密码/令牌/隐私数据。
+
+## 许可
+
+MIT，见 [LICENSE](LICENSE)。
