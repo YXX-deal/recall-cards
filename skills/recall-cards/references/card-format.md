@@ -16,7 +16,7 @@
 | keywords | 内联数组 | 检索词：同义词、英文缩写、易混写法 |
 | created | 日期 | `YYYY-MM-DD` |
 | status | 字符串 | `draft`（待确认草稿）或 `active`（已入库）。AI 回答后暂存的新卡为 `draft`，用户确认后转 `active`；手动新建默认 `active` |
-| motivation | 字符串 | 一句话，**必须含场景**："做 HCIP 题库第 24 题时分不清 LSA 类型"。这是动机的唯一存放处 |
+| motivation | 字符串 | 一句话，**必须含场景**："做某套网络题库时分不清两个相近概念"。这是动机的唯一存放处 |
 | source | 字符串 | 来源（题库/课件/论文/对话），无则留空 `""` |
 | links | 内联数组 | 关联卡片 id，只通过 `link` 命令/接口维护（保证双向） |
 | review | 嵌套 | 初始 `ease: 2.5, interval: 0, due: <created>, reps: 0, lapses: 0, last: ""`，之后只由 `record` 更新。调度遵循遗忘曲线：good 间隔 1→3→7→×ease，hard ×1.2 降 ease，forgot 重置 1 天扣 ease 计 lapse，ease 夹 1.3–3.0 |
@@ -57,8 +57,8 @@ tags: [网络, OSPF, 路由]
 keywords: [LSA, 链路状态通告, Type1, Type2, link state advertisement]
 created: 2026-11-17
 status: active
-motivation: 做 HCIP-DCN 题库第 24 题时，选项里的 LSA 类型对不上号
-source: HCIP-DCN 题库
+motivation: 做某套网络题库时，选项里的概念类型对不上号
+source: 某套网络题库
 links: [kc-20261110-002]
 review:
   ease: 2.5
